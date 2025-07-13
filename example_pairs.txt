@@ -1,0 +1,5 @@
+# Example input file for batch prediction
+# Format: protein_path	ligand_path	pair_id
+# Lines starting with # are comments and will be ignored
+data/refined-set/1a1e/1a1e_protein.pdb	data/refined-set/1a1e/1a1e_ligand.sdf	complex_1
+data/refined-set/1a4k/1a4k_protein.pdb	data/refined-set/1a4k/1a4k_ligand.sdf	complex_2
