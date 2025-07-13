@@ -57,7 +57,8 @@ class Gate_Augmented_Graph_Attention_Layer(MessagePassing):
     def message(self, x_j, alpha, edge_weight):
 
         if edge_weight is not None:
-            weight = torch.Tensor([tensor if tensor == 1 else exp(-((tensor - self.alpha) ** 2) / self.beta) for tensor in edge_weight])
+            weight = torch.tensor([tensor if tensor == 1 else exp(-((tensor - self.alpha) ** 2) / self.beta) for tensor in edge_weight], 
+                    device=edge_weight.device, dtype=edge_weight.dtype)
             weight = weight.view(edge_weight.shape)
             return weight.unsqueeze(-1) * alpha.unsqueeze(-1) * x_j
             
