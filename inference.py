@@ -25,7 +25,7 @@ def load_model(model_path, config):
     print(f"Loading model from {model_path}")
     
     # Load the saved model
-    loaded_model = torch.load(model_path, map_location=config.device)
+    loaded_model = torch.load(model_path, map_location=config.device, weights_only=False)
     
     # Check if it's a state dict or a complete model
     if isinstance(loaded_model, dict):
@@ -258,7 +258,7 @@ def main():
     parser.add_argument('--ligand', help='Path to ligand SDF file (for single prediction)')
     
     # Batch prediction mode
-    parser.add_argument('--input_file', help='Input file with protein-ligand pairs (tab-separated, for batch prediction)')
+    parser.add_argument('--input_file' ,help='Input file with protein-ligand pairs (tab-separated, for batch prediction)')
     parser.add_argument('--output', help='Output CSV file for batch results (default: batch_results.csv)')
     
     # Common arguments
